@@ -35,12 +35,15 @@
 
 <body>
 	
+<!-- Overlay (missing in your code, added now) -->
+<div id="overlay" class="overlay hidden"></div>
+
 <!-- Popup -->
 <div id="popup" class="popup hidden">
   <button class="close-btn" onclick="closePopup()">×</button>
-  <h3>🎯Internship Opportunity</h3>
+  <h3>🎯 Internship Opportunity</h3>
   <p>Apply now and grow your career with us.</p>
-  <a href="#Internship"  class="apply-btn" onclick="closePopup()">Apply Now</a>
+  <a href="#Internship" class="apply-btn" onclick="closePopup()">Apply Now</a>
 </div>
 
 <style>
@@ -83,13 +86,13 @@
   /* Close Button */
   .close-btn {
     position: absolute;
-    top: 8px; left: 8px;
+    top: 8px;
+    right: 8px;   /* better than margin-left */
     border: none;
     background: transparent;
     font-size: 20px;
     cursor: pointer;
     color: #444;
-    margin-left:300px;
   }
 
   .apply-btn {
@@ -117,23 +120,7 @@
       overlay.classList.remove("hidden");
 
       // trigger animation
-      requestAnimationFrame(() => {
-        popup.classList.add("show");
-      });
-    }, 1000); // popup after 1s
-  };
 
-  function closePopup() {
-    const popup = document.getElementById("popup");
-    const overlay = document.getElementById("overlay");
-
-    popup.classList.remove("show");
-    setTimeout(() => {
-      popup.classList.add("hidden");
-      overlay.classList.add("hidden");
-    }, 300); // same as CSS transition
-  }
-</script>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner"></div>
@@ -755,6 +742,7 @@
 </body>
 
 </html>
+
 
 
 
